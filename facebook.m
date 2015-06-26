@@ -12,5 +12,5 @@ function [idx,c,M] = facebook(G, clusters)
     end
   end
   disp(['Metric ', num2str(M)]);
-  %clusterStats(idx);
+  clusterStats(idx);
 end
