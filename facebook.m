@@ -1,5 +1,5 @@
 function [idx,c,M] = facebook(G, clusters) 
-  [idx,c] = kmeans(G,clusters,'EmptyAction','singleton');
+  [idx,c] = k_means(G,clusters,'EmptyAction','singleton');
   M = 0;
   for j = 1:clusters
     cluster = find(idx==j);
@@ -7,7 +7,9 @@ function [idx,c,M] = facebook(G, clusters)
     center = c(j,:);
     for i = 1:length(cluster)
       point = rows(i,:);
-      distance = norm(point -  center);
+      distance = sum((point - center).*(point - center));
+      %v = point - center;
+      %distance = (v * v')^2; %norm(point -  center);
       M = M + distance;   
     end
   end
