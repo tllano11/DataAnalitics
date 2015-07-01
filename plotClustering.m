@@ -1,4 +1,4 @@
-function [C] = plotClustering(Adj, clustering)
+function [C] = plotClustering(Adj, clustering, outputFile)
   C = Adj;
   [i,j,v] = find(Adj);  % set i and j to be the indices of non-zeros in A
   pairs = [i,j];
@@ -9,4 +9,5 @@ function [C] = plotClustering(Adj, clustering)
   		C(j,k) = clustering(k);
   	end
   end
+
 end
