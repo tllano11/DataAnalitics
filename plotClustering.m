@@ -18,5 +18,4 @@ function [C] = plotClustering(Adj, clustering)
       C(j,k) = extraCluster;
   	end
   end
-
 end
