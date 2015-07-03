@@ -13,7 +13,7 @@ function [Metrics] = benchmark(Graph, Decomp, MaxClusters)
 
   graphics_toolkit gnuplot
   % Colors used to plot
-  colororder = [
+  colororder2 = [
 	0.00  0.00  1.00
 	0.00  0.50  0.00 
 	1.00  0.00  0.00 
@@ -35,6 +35,20 @@ function [Metrics] = benchmark(Graph, Decomp, MaxClusters)
 	0.66  0.34  0.65
 	0.99  0.41  0.23
   ];
+  colororder = [
+  	0.48  0.55  0.55
+  	0.41  0.12  0.00 
+  	0.41  0.23  0.37 
+  	0.93  0.46  0.00
+  	0.36  0.99  0.04
+  	0.33  1.00  0.62 
+  	0.29  0.00  0.51
+  	0.00  1.00  0.00
+  	0.20  0.00  0.00 
+  	0.55  0.40  0.03
+  	0.58  0.00  0.83
+    ];
+
   set(gca(),'colororder',colororder);
   cla();
 
@@ -59,6 +73,8 @@ function [Metrics] = benchmark(Graph, Decomp, MaxClusters)
   xlabel('Number of clusters');
   ylabel(p(1), 'Distance to centroids');
   ylabel(p(2), 'Modularity');
+  set(hd,'linewidth',2,'marker','o');
+  set(hm,'linewidth',2,'marker','+');
   print(g,'-dpng', '-color', 'clustering-stats.png');
 
   % Requires miscellaneous package in octave
